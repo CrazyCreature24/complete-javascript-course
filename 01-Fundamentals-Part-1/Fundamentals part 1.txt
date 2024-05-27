@@ -1,0 +1,61 @@
+Javascript handles the behaviour of a website. Handles all logic.
+
+Responsible for dynamic effects and web applicaitons in the browser.
+
+Can be used to run web appliactions on web servers. For native mobile apps and native desktop applicaitons.
+
+ES = Ecmascript. (ES6/ES2015 was the biggest update, but it is updated yearly)
+
+Ctrl + shift + J = Open console in browser.
+
+console.log() to log 1 or more variables in the console. You can do Mathmatical calculations in here as well.
+
+Variable conventions:
+- lower camel case, Most standard way. Could also use underscores, but dont.
+- Constants Can use all caps (PI = 3.1415)
+- Use descriptive names
+
+Primitive Data types that are new to me (These are dynamically typed):
+"Number" type =     float or integer.
+Undefined =         a variable that has not been givent a value yet.
+Null =              Empty value;
+Symbol =            Introduced in (ES2015), Value is unique and cannot be changed.
+BigInt =            Introduced in (ES2020), Larger integers that the Number type can hold
+
+Data types can be changed dynamically. Meaning it can start as a string, then become a number later, then a boolean.
+
+How to comment = // or /* */ (Think C++)
+
+Bug with the 'typeof' operator:
+If you type "console.log(typeof null)' This will return 'object' not 'null'.
+
+
+'let':                     Allows the variable to be changed at any point.
+'const'                    Stops the variable from being changed ever. Not allowed to create an 'Undefined' variable.      To write clean code, make your variables a const unless you know it is       supposed to change. This helps prevent bugs.
+'var'(Depricated):         At first sight, it works like 'let'. Will learn more later. But avoid using unless needed.
+typeless (Please don't):   Works, but very dangerous.
+
+
+Operators:
+Mathmatical operators:      +, -, *, /, **, %,  etc. (** means exponent, 2 ** 3 = 2 to the power of 3)
+Assignment operators:       =, +=, -=, *=, /=, ++, --. (Think C++)
+Comparison operators:       >, <, >=, <=, ==, ===, !=, !==.
+Logical operators:          &&, ||, 
+
+NOTE: look at the order of precendense to see different operators. There are some interesting ones.
+
+Template string literals =  They can be used for all strings if you want. This make strings much nicer. They also make adding new lines easier, do not need to use '\n' which works the same way as it does in C++, just make iit multiple lines in code, and the text will match.
+
+Type conversion: The manually convert from a string to a number or vice versa, cast it like C++. Number(), String().
+
+Type coercion: Javascript does this implicetly. When adding strings and numbers together, a string is the result. When subtracting strings and numbers, a number is the result. This is depending on the LAST expression in the line.
+
+Falsy values: 0, '', undefined, null, NaN.
+Truthy values: Everything else.
+
+Strict Equality (===):      It does not perform type coercion.
+Loosly Equality (==):       Can perform type coercion. Avoid this to avoid weird bugs.
+
+Get input from user: prompt(). Remember to store in variable.
+
+Ternary expressions can be used in Template literals.

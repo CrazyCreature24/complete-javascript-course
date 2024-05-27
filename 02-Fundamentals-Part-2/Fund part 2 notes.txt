@@ -1,0 +1,44 @@
+Activate strict mode: 'use strict'. Used to make more secure code. Avoid bugs. Creates more visible errors, avoids failing silently. I don't see why we would not use it.
+
+
+Functions:
+Declaration = Same as C++. These do NOT need to be declared before calling it.
+Expression = Storing the function "value" in a variable. Must be created before calling it. Calls the same way as Decaration.
+Arrow function = No function name. Makes it easier to make 1 line or more functions. No 'this' operator. Should be stored in a variable. "const calcAge3 = birthYear => 2037 - birthYear;". Can be separated into multiple lines by adding {}. Multiple parameters can be added with brackets "(?,?,?)".
+
+
+
+Arrays:
+Arrays are declared by doing "const arrayName = [?,?,?, etc]" or "const arrayName = new Array(?,?,?)".
+Array elements can be changed even though they are const, but you cant set the whole array to be another array.
+Not all array elements need to be of the same type.
+
+Array methods:
+push(?) =       Add to the end of the array. Returns the length.
+pop() =         Pops the last element off of the array. Returns the element.
+unshift(?) =    Add an element to front of the array. 
+shift() =       Removes the front element of the array.
+indexof(?) =    Returns the index of the provided element in the array.
+includes(?) =   Returns if the element is in the array. True of False.
+
+
+
+
+Objects:
+Used for clusters of data that does not need to be ordered.
+Dot vs Bracket notation:
+    Dot notation: object.keyName.
+    Bracket notaiton: object['keyName']. In case you need to do an expression while calcualting which key to access in the object. Can do stuff like: name['keyName' + suffix]. 
+
+Object methods:
+objects can contain methods. They look like.
+"functionName = function() {}"
+Access it by "objectName.functionName()".
+Accessing an objects variable instion a one of its methods, use the 'this' keyword.
+
+
+
+Loops:
+Think C++.
+
+

@@ -1,0 +1,13 @@
+
+https://prettier.io/docs/en/options
+https://developer.mozilla.org/en-US/
+
+Things to help develop in node.js:
+Install Live-Server, whether it is through an extention or through installing Node.js and then opening the terminal and typing 'npm install live-server -g'.
+
+Putting 2 arrays together: array1.concat(array2).
+
+Debugging:
+console.table() will put an array in a table. This helps in debugging objects
+
+Can also use the 'Sources' Tab in Google chrome and this allows you to drop breakpoints and such.

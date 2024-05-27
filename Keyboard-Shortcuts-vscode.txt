@@ -1,0 +1,15 @@
+
+Web based Shortcuts:
+
+Ctrl + Shift + j = Open console.
+
+
+VSCode Shortcuts:
+
+Ctrl + / = Comment line(s)
+Ctrl + d + hightlight various text = Allows to hightlight text on different lines
+
+
+CMD calls:
+'CLS' = clear the terminal
+'npm install ....' = install variaous packages.
