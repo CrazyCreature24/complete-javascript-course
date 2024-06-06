@@ -8,6 +8,7 @@ VSCode Shortcuts:
 
 Ctrl + / = Comment line(s)
 Ctrl + d + hightlight various text = Allows to hightlight text on different lines
+Alt + up/down = Move highlight line up or down.
 
 
 CMD calls:

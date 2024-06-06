@@ -1,0 +1,40 @@
+High level overview:
+- Javascript is a high level, object oriented programming language.
+
+- High-level, 
+It does not need to manage resources manually.
+
+- garbage collected programming language with 
+Automatically removes unused objects that are not being used.
+
+- interpreted or just-in-time compiled, 
+Happens inside the engine
+
+- multi-paradigm.
+paradigm: an approach and mindset of structuring code, which will direct your coding style and technique.
+1. Procedural programming.
+2. OOP
+3. Functional programming
+Imperative vs Declaritive.
+
+
+- prototype-based object oriented, 
+
+
+
+- first-class functions and 
+
+
+
+- dynamic, 
+
+
+- single threaded, 
+
+
+
+
+
+
+- a non-blocking event loop concurrenct model.
+
