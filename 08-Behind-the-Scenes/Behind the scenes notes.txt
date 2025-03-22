@@ -20,21 +20,130 @@ Imperative vs Declaritive.
 
 - prototype-based object oriented, 
 
+- first-class functions
+Functions are treated as variables. We can pass functions into functions and return them from functions.
 
 
-- first-class functions and 
+- dynamic
+Dynamically typed. There are no data types assigned ever. It is just what it needs to be right now.
 
-
-
-- dynamic, 
-
-
-- single threaded, 
-
-
-
-
-
+- single threaded
 
 - a non-blocking event loop concurrenct model.
+Concurrency model: How the JavaScript engine handles multiple tasks happening at the same time.
+Javascript runs on a single thread, so it can only do one thing at a time.
+To do multiple things we need to use an event loop: It takes long running tasks, executes them in the "background" and puts them back in the main thread once they are finished.
 
+
+
+
+The JS Engine and Runtime:
+Program that executes JS Code. Best example is Googles V8 engine.
+Call Stack: Where code is executed via the Execution context.
+Heap: Where the objects are stored.
+
+Compilation: Entire code is converted into machine code at once, and written to a binary file that can be executed by a computer.
+Interpretation: Interpreter runs through the source code and executes it line by line. (Much slower than Compilation since this code still needs to be converted to machine code.)
+Just-In-Time Compilation: Entire code is converted into machine code at once. then executed immediately. (JS runs on this)
+
+Code is parsed, then compiled quickly, then executed, then optimized by compiling over and over again.
+
+JS Runtime:
+Contatiner including all the things we need to use JS in a browser.
+Need the engine and the WEB APIs (DOM, Timers, Fetch API, etc) and a callback queue (Event handler, click, timer, data).
+Event loop pulls data from callback queue and puts it in the Call stack.
+
+Node JS runs on a C++ bindings and Thread pool instead of WEb APIs.
+
+
+Execution context:
+After compilation, the creation of the global Execution context happens (For top level code(Not in a function)).
+Funcitons are only executed when called.
+An EC is an environment which a piece of JavaScript is executed. Stores all the necessary info for some code to be executed.
+Only ever ONE global execution context.
+
+Then the execution of top-level code (inside global ec).
+
+Then the execution of functions and waiting for callbacks.
+Each function gets an EC: For each function call, a new execution context is created.
+All of this combine to create the call stack.
+
+What is in an EC:
+1. Variable environment:
+    let, const and var declarations
+    Functions
+    Arguements object
+2. Scope chain
+    References to variables outside the function.
+3. Each EC gets a 'this' variable. Generated during "Creation phase", right before execution.
+
+Arrow functions do NOT have a 'this' or and Arguements object. Instead they use the one of the closest parent. IMPORTANT.
+
+The Call Stack:
+Where ECs get stacked on each other to keep track of where we are in execution.
+The Global EC goes at the bottom, then as ECs are created, they are stacked on top and the one below it is paused. Once one is finished, it pops it off the stack and then returns to the one below it.
+
+
+
+Scope and scope chain:
+Scoping is how our programs variables are organized and accessed.
+Lexical scoping means that it is controlled by placement of functions and blocks in the code.
+Scope is the space or environment in which a certain variable is declared (variable environment in case of functions). There is global scope, function scope and block scope.
+Scope of a variable is the region of our code where a certain variable can be accessed.
+
+3 Types of scope;
+Global scope: Outside of any function/block. Accessible everywhere.
+Functional scope: Only accessable in the function. Also called local scope.
+Block Scope: Only available inside the block of code it is created. ONLY applies to let and const variables. Functions are also block scoped (only in strict mode)
+
+
+
+Variable environment: Hoisting and the TDZ:
+Hoisting = Makes some types of variables accessible/usable in the code before they are actually declared. "Variables lifted to the top of their scope.
+- Behind the scenes:
+    - Before execution, code is scanned for variable declarations, and for each variable, a new property is created in the variable environment object.
+        - function declarations:
+            - Hoisted.
+            - Initial value: Actual function. Means can us function declarations before they are actually declared in the code.
+            - Scope: Block
+        - var variables:
+            - Hoisted. Dont get declae value, but you get undefined.
+            - Initial value: undefined.
+            - Scope: Function.
+        - let and const variables:
+            - Not Hoisted.
+            - Initial value: uninitialized, Temporal dead zone.
+            - Scope: Block
+        - function expressions and arrows:
+            - Depends if created with var, let or const. Will behave the same as above.
+
+TDZ: Temporal dead zone
+    - Trying to access a variable before it is initialized, but it was added to the variable environment on the first pass. So it knows about it, but it has no clue what is in there.
+    - Why TDZ?
+        - Makes it easier to avoid and catch errors: accessing variables before declaration is bad practice and should be avoided.
+        - Makes const variables actually work.
+    - Why Hoisting?
+        - Using functions before actual declaration.
+        - var hoisting is just a by product.
+
+
+The 'this' keyword:
+- Special variable that is created for every EC (every function). Takes the value of (points to) the "owner" of the funciton in which the this keyword.
+- 'this' is not static: It depends on how the function is called, and its value is only assigned when the function is actually called.
+- 4 ways that functions can be called.
+    - Method(function attached to an object): this = Object that calling the method.
+    - Simple function call: this = undefined. (Only in strict mode)
+    - Arrow funcitons: this = this of the surrounding function (lexical this). It does not get its own 'this'.
+    - Event listener: this = <DOM element that the handler is attached to>
+- 'this' does NOT point to the function itself, and also NOT the variable environment.
+
+
+Regular functions vs Arrow functions:
+Never use the arrow function as a method. Use function expressions instead.
+'arguements' keyword = all the parameters brought into the function, but does not exist in arrow functions.
+
+SHALLOW COPY vs DEEP COPY/CLONE
+The "Spread" operator can be used to make complete copies of objects, instead of just references. Here is an example:
+const jessica2Copy = { ...jessica2 };
+Be careful of objects within objects. It will copy only the first level (shallow copy), some may be references to objects.
+For a DEEP COPY, use the function "structuredClone(objectToClone)"
